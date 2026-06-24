@@ -4,9 +4,11 @@ from models.db import cursor, conn
 from models.analyzer import analyze_language
 from models.regex_generator import generate_regex
 from models.validator import validate_string
-
+from models.dfa_generator import create_dfa
+from models.explainer import explain_regex
+from models.testcase_generator import generate_test_cases
 app = Flask(__name__)
-
+current_dfa_type = "default"
 
 @app.route('/')
 def home():
@@ -15,7 +17,13 @@ def home():
 @app.route('/generator', methods=['GET', 'POST'])
 def generator():
 
+    global current_dfa_type
+
     regex = ""
+    pattern_type = ""
+    regex_explanation = []
+    valid_examples = []
+    invalid_examples = []
 
     if request.method == 'POST':
 
@@ -24,17 +32,63 @@ def generator():
         analysis = analyze_language(language)
 
         regex = generate_regex(analysis)
+        valid_examples = []
+        invalid_examples = []
+   
+        if analysis.get("type"):
+            valid_examples, invalid_examples = generate_test_cases(
+                analysis["type"]
+            )
+            regex_explanation = explain_regex(regex)
+
+        if analysis.get("type"):
+            pattern_type = analysis["type"]
+
+        elif "start" in analysis and "end" in analysis:
+            pattern_type = "starts with and ends with"
+
+        elif "start" in analysis:
+            pattern_type = "starts with"
+
+        elif "end" in analysis:
+            pattern_type = "ends with"
+
+        elif "substring" in analysis:
+            pattern_type = "substring"
+
+        if analysis.get("type"):
+            current_dfa_type = analysis["type"]
+
+        elif "start" in analysis:
+            current_dfa_type = "start"
+
+        elif "end" in analysis:
+            current_dfa_type = "end"
+
+        elif "substring" in analysis:
+            current_dfa_type = "substring"
+
+        else:
+            current_dfa_type = "default"
 
         cursor.execute("""
-        INSERT INTO history(language_rule, generated_regex)
-        VALUES(%s,%s)
-        """, (language, regex))
+            INSERT INTO history(language_rule, generated_regex)
+            VALUES(?,?)
+            """,
+            (
+                language,
+                regex
+            ))
 
         conn.commit()
 
     return render_template(
         'generator.html',
-        regex=regex
+        regex=regex,
+        pattern_type=pattern_type,
+        regex_explanation=regex_explanation,
+        valid_examples=valid_examples,
+        invalid_examples=invalid_examples
     )
 
 @app.route('/validator', methods=['GET', 'POST'])
@@ -58,7 +112,7 @@ def validator():
             test_string,
             result
         )
-        VALUES(%s,%s,%s)
+        VALUES(?,?,?)
         """,
         (
             regex,
@@ -87,7 +141,7 @@ def history():
         'history.html',
         records=records
     )
-   # Dashboard@app.route('/dashboard')
+@app.route('/dashboard')
 def dashboard():
 
     cursor.execute("SELECT COUNT(*) FROM history")
@@ -110,25 +164,15 @@ def dashboard():
         invalid_count=invalid_count
     )
 
-    from models.dfa_generator import create_dfa
-    from flask import Flask, render_template, request
-
-from models.db import cursor, conn
-from models.analyzer import analyze_language
-from models.regex_generator import generate_regex
-from models.validator import validate_string
-
-from models.dfa_generator import create_dfa
-
 @app.route('/dfa')
 def dfa():
 
-    image = create_dfa()
+    image = create_dfa(current_dfa_type)
 
     return render_template(
         'dfa.html',
         image=image
     )
-
+    
 if __name__ == '__main__':
     app.run(debug=True)

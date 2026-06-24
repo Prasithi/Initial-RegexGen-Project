@@ -1,50 +1,99 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
+{% block content %}
 
-<head>
-<title>Regex History</title>
-</head>
+<div class="container mt-5">
 
-<body>
+    <div class="text-center mb-4">
 
-<nav>
-<a href="/">Home</a> |
-<a href="/generator">Generator</a> |
-<a href="/validator">Validator</a> |
-<a href="/history">History</a> |
-<a href="/dashboard">Dashboard</a>
-</nav>
+        <h1>Regex History</h1>
 
-<hr>
+        <p>
+            Previously Generated Regular Expressions and Validation Results
+        </p>
 
-<h1>Regex History</h1>
+    </div>
 
-<table border="1">
+    <div class="card shadow p-4">
 
-<tr>
-<th>ID</th>
-<th>Language Rule</th>
-<th>Generated Regex</th>
-<th>String</th>
-<th>Result</th>
-<th>Date</th>
-</tr>
+        <div class="table-responsive">
 
-{% for row in records %}
+            <table class="table table-bordered table-hover">
 
-<tr>
-<td>{{ row[0] }}</td>
-<td>{{ row[1] }}</td>
-<td>{{ row[2] }}</td>
-<td>{{ row[3] }}</td>
-<td>{{ row[4] }}</td>
-<td>{{ row[5] }}</td>
-</tr>
+                <thead class="table-dark">
 
-{% endfor %}
+                    <tr>
 
-</table>
+                        <th>ID</th>
 
-</body>
-</html>
+                        <th>Language Rule</th>
+
+                        <th>Generated Regex</th>
+
+                        <th>Test String</th>
+
+                        <th>Result</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for row in records %}
+
+                    <tr>
+
+                        <td>{{ row[0] }}</td>
+
+                        <td>{{ row[1] }}</td>
+
+                        <td>
+                            <code>{{ row[2] }}</code>
+                        </td>
+
+                        <td>{{ row[3] }}</td>
+
+                        <td>
+
+                            {% if row[4] == "VALID" %}
+
+                            <span class="badge bg-success">
+                                VALID
+                            </span>
+
+                            {% elif row[4] == "INVALID" %}
+
+                            <span class="badge bg-danger">
+                                INVALID
+                            </span>
+
+                            {% else %}
+
+                            <span class="badge bg-secondary">
+                                {{ row[4] }}
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>{{ row[5] }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

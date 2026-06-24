@@ -1,13 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>DFA Visualizer</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-<h1>DFA Visualization</h1>
+{% block content %}
 
-<img src="{{ url_for('static', filename='dfa.png') }}">
+<div class="container mt-5">
 
-</body>
-</html>
+```
+<div class="row justify-content-center">
+
+    <div class="col-lg-10">
+
+        <div class="card p-4 shadow">
+
+            <div class="text-center">
+
+                <h2>DFA Visualization</h2>
+
+                <p>
+                    Deterministic Finite Automaton generated from the detected pattern.
+                </p>
+
+                <hr>
+
+                <img
+                    src="{{ url_for('static', filename=image) }}"
+                    class="img-fluid"
+                    alt="DFA Visualization">
+
+                <br><br>
+
+                <div class="alert alert-info">
+
+                    Current DFA is generated based on the detected pattern category
+                    (digits, alphabets, binary, email, etc.).
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+{% endblock %}

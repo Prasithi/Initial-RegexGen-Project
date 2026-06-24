@@ -1,69 +1,120 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-<head>
-    <title>Regex Generator</title>
+{% block content %}
 
-```
-<link rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}">
-```
-
-</head>
-<nav>
-
-<a href="/">Home</a> |
-
-<a href="/generator">Generator</a> |
-
-<a href="/validator">Validator</a> |
-
-<a href="/history">History</a> |
-
-<a href="/dashboard">Dashboard</a>
-
-</nav>
-
-<hr>
-
-<body>
-
-<div class="container">
+<div class="container mt-5">
 
 ```
-<h1>Regex Generator</h1>
+<div class="row justify-content-center">
 
-<form method="POST">
+    <div class="col-lg-8">
 
-    <textarea
-        name="language"
-        rows="6"
-        cols="60"
-        placeholder="Enter Language Description"
-        required></textarea>
+        <div class="card p-4 shadow">
 
-    <br><br>
+            <h2 class="text-center mb-4">
+                Automatic Regex Generator
+            </h2>
 
-    <button type="submit">
-        Generate Regex
-    </button>
+            <form method="POST">
 
-</form>
+                <div class="mb-3">
 
-{% if regex %}
+                    <label class="form-label">
+                        Language Description
+                    </label>
 
-<div class="result-box">
+                    <textarea
+                        class="form-control"
+                        name="language"
+                        rows="5"
+                        placeholder="Example: numeric strings"
+                        required></textarea>
 
-    <h2>Generated Regex</h2>
+                </div>
 
-    <p>{{ regex }}</p>
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    Generate Regex
+
+                </button>
+
+            </form>
+
+            {% if regex %}
+
+            <hr>
+
+            <h4>Detected Pattern</h4>
+
+            <div class="alert alert-info">
+                {{ pattern_type }}
+            </div>
+
+            <h4>Generated Regular Expression</h4>
+
+            <div class="alert alert-success">
+                {{ regex }}
+            </div>
+
+            <h4 class="mt-4">
+                Regex Explanation
+            </h4>
+
+            <ul class="list-group">
+
+                {% for item in regex_explanation %}
+
+                <li class="list-group-item">
+                    {{ item }}
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+            <h4 class="mt-4">
+                Valid Examples
+            </h4>
+
+            <ul class="list-group">
+
+                {% for item in valid_examples %}
+
+                <li class="list-group-item">
+                    {{ item }}
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+            <h4 class="mt-4">
+                Invalid Examples
+            </h4>
+
+            <ul class="list-group">
+
+                {% for item in invalid_examples %}
+
+                <li class="list-group-item">
+                    {{ item }}
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+```
 
 </div>
 
-{% endif %}
-```
-
-</div>
-
-</body>
-</html>
+{% endblock %}

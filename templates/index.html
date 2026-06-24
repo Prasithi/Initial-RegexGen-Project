@@ -1,50 +1,206 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
+{% block content %}
 
-<title>RegexGen</title>
+<div class="main-banner">
 
-<link rel="stylesheet"
-href="{{ url_for('static', filename='css/style.css') }}">
+    <div class="container">
 
-</head>
-<nav>
+        <div class="row">
 
-<a href="/">Home</a> |
+            <div class="col-lg-12">
 
-<a href="/generator">Generator</a> |
+                <div class="top-text header-text">
 
-<a href="/validator">Validator</a> |
+                    <h6>Compiler Design Project</h6>
 
-<a href="/history">History</a> |
+                    <h2>
+                        Automatic Regular Expression Generation<br>
+                        and String Validation
+                    </h2>
 
-<a href="/dashboard">Dashboard</a>
+                    <h4 style="color:white;">
+                        An Intelligent System
+                    </h4>
 
-</nav>
+                    <br>
 
-<hr>
+                    <a href="/generator" class="btn btn-primary btn-lg">
+                        Get Started
+                    </a>
 
-<body>
+                </div>
 
-<nav>
+            </div>
 
-<div class="logo">
-RegexGen
+        </div>
+
+    </div>
+
 </div>
 
-</nav>
+<!-- About Section -->
 
-<section class="hero">
+<section class="container mt-5">
 
-<h1>RegexGen</h1>
+    <div class="card p-4 shadow">
 
-<p>
-An Intelligent System for Automatic Regular Expression Generation and String Validation
-</p>
+        <h3>About RegexAI</h3>
+
+        <p>
+            RegexAI is an intelligent system that converts natural language
+            descriptions into regular expressions automatically. The system
+            analyzes user requirements, generates regex patterns, validates
+            strings, and visualizes pattern structures through DFA diagrams.
+        </p>
+
+    </div>
 
 </section>
 
-</body>
+<!-- Features Section -->
 
-</html>
+<section class="container mt-5 mb-5">
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card p-4 shadow h-100">
+
+                <h4>Language Analyzer</h4>
+
+                <p>
+                    Understands natural language pattern descriptions and
+                    identifies the intended pattern type.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card p-4 shadow h-100">
+
+                <h4>Regex Generator</h4>
+
+                <p>
+                    Automatically generates suitable regular expressions
+                    from user requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card p-4 shadow h-100">
+
+                <h4>String Validator</h4>
+
+                <p>
+                    Tests input strings against generated regex patterns
+                    and returns validation results.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Supported Patterns -->
+
+<section class="container mt-5 mb-5">
+
+    <div class="card p-4 shadow">
+
+        <h3>Supported Patterns</h3>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <ul>
+                    <li>numeric strings</li>
+                    <li>letters only</li>
+                    <li>capital letters</li>
+                    <li>small letters</li>
+                    <li>binary numbers</li>
+                    <li>alphanumeric strings</li>
+                    <li>hexadecimal values</li>
+                </ul>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <ul>
+                    <li>email address</li>
+                    <li>mobile number</li>
+                    <li>website url</li>
+                    <li>starts with a</li>
+                    <li>ends with z</li>
+                    <li>starts with a and ends with z</li>
+                    <li>contains substring abb</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Project Statistics -->
+
+<section class="container mt-5 mb-5">
+
+    <div class="row text-center">
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card p-4 shadow">
+
+                <h2>15+</h2>
+
+                <p>Supported Patterns</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card p-4 shadow">
+
+                <h2>3</h2>
+
+                <p>Core Modules</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card p-4 shadow">
+
+                <h2>100%</h2>
+
+                <p>Regex Validation Support</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

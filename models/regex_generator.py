@@ -1,39 +1,51 @@
 def generate_regex(analysis):
 
     if analysis.get("type") == "digits":
-        return "[0-9]+"
+        return r"^[0-9]+$"
 
-    if analysis.get("type") == "alphabets":
-        return "[a-zA-Z]+"
+    elif analysis.get("type") == "alphabets":
+        return r"^[a-zA-Z]+$"
 
-    if analysis.get("type") == "binary":
-        return "[01]+"
+    elif analysis.get("type") == "uppercase":
+        return r"^[A-Z]+$"
 
-    if analysis.get("type") == "email":
+    elif analysis.get("type") == "lowercase":
+        return r"^[a-z]+$"
+
+    elif analysis.get("type") == "binary":
+        return r"^[01]+$"
+
+    elif analysis.get("type") == "email":
         return r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
 
-    if analysis.get("type") == "phone":
+    elif analysis.get("type") == "phone":
         return r"^[0-9]{10}$"
 
-    if analysis.get("type") == "url":
+    elif analysis.get("type") == "url":
         return r"^(https?|ftp)://[^\s]+$"
 
-    if "substring" in analysis:
+    elif analysis.get("type") == "alphanumeric":
+        return r"^[a-zA-Z0-9]+$"
 
-        sub = analysis["substring"]
+    elif analysis.get("type") == "hexadecimal":
+        return r"^[0-9A-Fa-f]+$"
 
-        return f".*{sub}.*"
+    elif analysis.get("type") == "float":
+        return r"^[0-9]+\.[0-9]+$"
 
-    if "start" in analysis:
+    elif analysis.get("type") == "special":
+        return r"^[^a-zA-Z0-9]+$"
 
-        start = analysis["start"]
+    elif "start" in analysis and "end" in analysis:
+        return f"^{analysis['start']}.*{analysis['end']}$"
 
-        return f"^{start}.*"
+    elif "start" in analysis:
+        return f"^{analysis['start']}.*"
 
-    if "end" in analysis:
+    elif "end" in analysis:
+        return f".*{analysis['end']}$"
 
-        end = analysis["end"]
-
-        return f".*{end}$"
+    elif "substring" in analysis:
+        return f".*{analysis['substring']}.*"
 
     return "Pattern not supported"

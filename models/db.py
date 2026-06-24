@@ -1,12 +1,23 @@
-import mysql.connector
+import sqlite3
 
-conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root123",
-    database="regexgen"
+conn = sqlite3.connect(
+    'history.db',
+    check_same_thread=False
 )
 
 cursor = conn.cursor()
 
-print("Database Connected")
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    language_rule TEXT,
+    generated_regex TEXT,
+    test_string TEXT,
+    result TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+""")
+
+conn.commit()
+
+print("SQLite Database Connected")

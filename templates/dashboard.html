@@ -1,38 +1,57 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
+{% block content %}
 
-<head>
-    <title>RegexGen Dashboard</title>
-</head>
+<div class="container mt-5">
 
-<body>
+    <div class="text-center mb-5">
 
-<nav>
-<a href="/">Home</a> |
-<a href="/generator">Generator</a> |
-<a href="/validator">Validator</a> |
-<a href="/history">History</a> |
-<a href="/dashboard">Dashboard</a>
-</nav>
+        <h1>RegexGen Dashboard</h1>
 
-<hr>
+        <p>Project Analytics Overview</p>
 
-<h1>RegexGen Dashboard</h1>
+    </div>
 
-<table border="1">
+    <div class="row">
 
-<tr>
-<th>Metric</th>
-<th>Value</th>
-</tr>
+        <div class="col-md-4">
 
-<tr>
-<td>Total Regex Generated</td>
-<td>{{ total_regex }}</td>
-</tr>
+            <div class="card shadow text-center p-4">
 
-</table>
+                <h3>Total Records</h3>
 
-</body>
-</html>
+                <h1>{{ total_records }}</h1>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow text-center p-4">
+
+                <h3>Valid Strings</h3>
+
+                <h1>{{ valid_count }}</h1>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow text-center p-4">
+
+                <h3>Invalid Strings</h3>
+
+                <h1>{{ invalid_count }}</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

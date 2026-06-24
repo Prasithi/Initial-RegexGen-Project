@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>RegexGen AI</title>
+
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/templatemo-plot-listing.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animated.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.css') }}">
+
+</head>
+
+<body>
+
+<header class="header-area header-sticky wow slideInDown">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <nav class="main-nav">
+
+                    <!-- Logo -->
+                    <a href="/" class="logo">
+                        <img
+                            src="{{ url_for('static', filename='assets/images/logo.png') }}"
+                            alt="RegexGen AI"
+                            style="height: 120px; width:auto;">
+                    </a>
+
+                    <!-- Menu -->
+                    <ul class="nav">
+
+                        <li><a href="/">Home</a></li>
+
+                        <li><a href="/generator">Generator</a></li>
+
+                        <li><a href="/validator">Validator</a></li>
+
+                        <li><a href="/history">History</a></li>
+
+                        <li><a href="/dashboard">Dashboard</a></li>
+
+                        <li><a href="/dfa">DFA</a></li>
+
+                    </ul>
+
+                    <a class="menu-trigger">
+                        <span>Menu</span>
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- Space below navbar -->
+<div style="height:90px;"></div>
+
+{% block content %}
+{% endblock %}
+
+<footer class="text-center mt-5 mb-3">
+    <p>
+        RegexGen AI | Compiler Design Project
+    </p>
+</footer>
+
+<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+
+</html>

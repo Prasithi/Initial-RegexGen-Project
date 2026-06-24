@@ -1,41 +1,86 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background:#0a0a0a;
-    color:white;
-    font-family:Arial,sans-serif;
+background:#0a0a0a;
+color:white;
 }
 
 nav{
-    background:#111;
-    padding:20px;
+background:#141414;
+padding:20px;
+text-align:center;
+border-bottom:2px solid #ff004f;
 }
 
-.logo{
-    color:#ff003c;
-    font-size:28px;
-    font-weight:bold;
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
 }
 
-.hero{
-    height:90vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+nav a:hover
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+padding:40px;
 }
 
-.hero h1{
-    font-size:60px;
-    color:#ff003c;
+h1{
+text-align:center;
+color:#ff004f;
+margin-bottom:30px;
 }
 
-.hero p{
-    font-size:22px;
-    margin-top:20px;
+textarea,
+input{
+width:100%;
+padding:15px;
+margin-bottom:20px;
+border:none;
+border-radius:10px;
+background:#1e1e1e;
+color:white;
+}
+
+button{
+background:#ff004f;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+.card{
+background:#161616;
+padding:20px;
+border-radius:12px;
+margin-top:30px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table th,
+table td{
+padding:12px;
+border:1px solid #333;
+}
+
+table th{
+background:#ff004f;
 }
