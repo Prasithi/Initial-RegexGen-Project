@@ -2,36 +2,171 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container py-5">
 
-```
-<div class="row justify-content-center">
+    <div class="row justify-content-center">
 
-    <div class="col-lg-10">
+        <div class="col-lg-10">
 
-        <div class="card p-4 shadow">
+            <div class="card shadow-lg p-5">
 
-            <div class="text-center">
+                <div class="text-center">
 
-                <h2>DFA Visualization</h2>
+                    <h2 class="mb-3">
 
-                <p>
-                    Deterministic Finite Automaton generated from the detected pattern.
-                </p>
+                        Deterministic Finite Automaton (DFA)
+
+                    </h2>
+
+                    <p class="text-muted">
+
+                        Automatically Generated DFA from the Generated Regular Expression
+
+                    </p>
+
+                </div>
 
                 <hr>
 
-                <img
-                    src="{{ url_for('static', filename=image) }}"
-                    class="img-fluid"
-                    alt="DFA Visualization">
+                <div class="text-center">
 
-                <br><br>
+                    <img
+                        src="{{ url_for('static', filename=image) }}"
+                        class="img-fluid rounded shadow"
+                        style="max-height:500px;"
+                        alt="DFA">
 
-                <div class="alert alert-info">
+                </div>
 
-                    Current DFA is generated based on the detected pattern category
-                    (digits, alphabets, binary, email, etc.).
+                <hr>
+
+               <div class="text-center mt-4">
+
+    <span class="badge bg-primary p-3">
+        Start State : q0
+    </span>
+
+    &nbsp;
+
+    <span class="badge bg-success p-3">
+        Final State : q1
+    </span>
+
+    &nbsp;
+
+    <span class="badge bg-info p-3">
+        Graphviz
+    </span>
+
+    &nbsp;
+
+    <span class="badge bg-dark p-3">
+        Automatic
+    </span>
+
+</div>
+<div class="text-center mt-4">
+
+    <span class="badge bg-primary p-3">Start State : q0</span>
+
+    <span class="badge bg-success p-3">Final State : q1</span>
+
+    <span class="badge bg-info p-3">Graphviz</span>
+
+    <span class="badge bg-dark p-3">Automatic</span>
+
+</div>
+                    <div class="col-md-3">
+
+                        <div class="card p-3">
+
+                            <h4>🔄</h4>
+
+                            <h6>Transition</h6>
+
+                            <strong>Automatic</strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="card p-3">
+
+                            <h4>📊</h4>
+
+                            <h6>Diagram</h6>
+
+                            <strong>Graphviz</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <h4 class="mb-3">
+
+                    DFA Information
+
+                </h4>
+
+                <table class="table table-bordered table-hover">
+
+                    <tbody>
+
+                        <tr>
+
+                            <th>Automaton Type</th>
+
+                            <td>Deterministic Finite Automaton (DFA)</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Generated From</th>
+
+                            <td>Generated Regular Expression</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Visualization Engine</th>
+
+                            <td>Graphviz</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Generation</th>
+
+                            <td>Automatic</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <div class="text-center mt-4">
+
+                    <a href="/static/dfa.png"
+   download
+   class="btn btn-primary neon-btn">
+
+    ⬇ Download DFA
+
+</a>
+
+                        ⬇ Download DFA
+
+                    </a>
 
                 </div>
 
@@ -40,9 +175,6 @@
         </div>
 
     </div>
-
-</div>
-```
 
 </div>
 

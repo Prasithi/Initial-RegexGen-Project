@@ -8,7 +8,11 @@
 
     <title>RegexGen AI</title>
 
+    <link rel="icon" href="{{ url_for('static', filename='assets/images/logo.png') }}">
+
     <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome.css') }}">
 
@@ -18,74 +22,182 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.css') }}">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/regexgen.css') }}">
+<style>
+.neon-btn{
+    background:#2563EB;
+    color:white;
+    border:none;
+    border-radius:30px;
+    padding:10px 25px;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 0 10px #2563EB;
+}
+.neon-btn:hover{
+    background:#1D4ED8;
+    color:white;
+    box-shadow:0 0 20px #2563EB;
+}
+</style>
 </head>
 
 <body>
 
-<header class="header-area header-sticky wow slideInDown">
+    <!-- Navigation -->
+    <header class="header-area header-sticky wow slideInDown">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="row">
+            <div class="row">
 
-            <div class="col-12">
+                <div class="col-12">
 
-                <nav class="main-nav">
+                    <nav class="main-nav">
 
-                    <!-- Logo -->
-                    <a href="/" class="logo">
-                        <img
-                            src="{{ url_for('static', filename='assets/images/logo.png') }}"
-                            alt="RegexGen AI"
-                            style="height: 120px; width:auto;">
-                    </a>
+                        <!-- Logo -->
+                        <a href="/" class="logo">
 
-                    <!-- Menu -->
-                    <ul class="nav">
+                            <img
+                                src="{{ url_for('static', filename='assets/images/logo.png') }}"
+                                alt="RegexGen AI"
+                                style="height:70px;width:auto;">
 
-                        <li><a href="/">Home</a></li>
+                        </a>
 
-                        <li><a href="/generator">Generator</a></li>
+                        <!-- Navigation -->
 
-                        <li><a href="/validator">Validator</a></li>
+                        <ul class="nav">
 
-                        <li><a href="/history">History</a></li>
+                            <li><a href="/">Home</a></li>
 
-                        <li><a href="/dashboard">Dashboard</a></li>
+                            <li><a href="/generator">Generator</a></li>
 
-                        <li><a href="/dfa">DFA</a></li>
+                            <li><a href="/validator">Validator</a></li>
 
-                    </ul>
+                            <li><a href="/history">History</a></li>
 
-                    <a class="menu-trigger">
-                        <span>Menu</span>
-                    </a>
+                            <li><a href="/dashboard">Dashboard</a></li>
 
-                </nav>
+                            <li><a href="/dfa">DFA</a></li>
+
+                        </ul>
+
+                        <a class="menu-trigger">
+                            <span>Menu</span>
+                        </a>
+
+                    </nav>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </header>
 
-</header>
+    <!-- Space Below Navbar -->
 
-<!-- Space below navbar -->
-<div style="height:90px;"></div>
+    <div style="height:95px;"></div>
 
-{% block content %}
-{% endblock %}
+    <!-- Main Content -->
 
-<footer class="text-center mt-5 mb-3">
-    <p>
-        RegexGen AI | Compiler Design Project
-    </p>
-</footer>
+    {% block content %}
+    {% endblock %}
 
-<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <!-- Footer -->
 
-<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <footer class="text-center mt-5">
+
+        <div class="container">
+
+            <hr>
+
+            <h3 style="color:white;font-weight:700;">
+
+                RegexGen AI
+
+            </h3>
+
+            <p style="color:#b0b8d1;">
+
+                An Intelligent System for Automatic Regular Expression Generation
+                and String Validation
+
+            </p>
+
+            <p style="color:#6c7aa0;">
+
+                Python • Flask • SQLite • Graphviz • Bootstrap • Render
+
+            </p>
+
+            <p style="color:#6c7aa0;">
+
+                © 2026 RegexGen AI. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- JS -->
+
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+
+    </script>
+
+    <!-- Typing Animation -->
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+
+        if (document.querySelector("#typing")) {
+
+            new Typed("#typing", {
+
+                strings: [
+
+                    "Generate Regular Expressions",
+
+                    "Validate Strings",
+
+                    "Visualize DFA",
+
+            
+
+                ],
+
+                typeSpeed: 60,
+
+                backSpeed: 35,
+
+                backDelay: 1800,
+
+                loop: true
+
+            });
+
+        }
+
+    </script>
+    <script src="{{ url_for('static', filename='assets/js/isotope.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='assets/js/owl-carousel.js') }}"></script>
+
+<script src="{{ url_for('static', filename='assets/js/wow.js') }}"></script>
+
+<script src="{{ url_for('static', filename='assets/js/tabs.js') }}"></script>
+
+<script src="{{ url_for('static', filename='assets/js/popup.js') }}"></script>
+
+<script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
 
 </body>
 

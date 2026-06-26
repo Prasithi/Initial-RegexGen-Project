@@ -1,106 +1,84 @@
 from graphviz import Digraph
+import re
 
-def create_dfa(regex_type):
 
-    dot = Digraph()
-    dot.attr(rankdir='LR')
+def create_dfa(regex):
 
-    if regex_type == "digits":
+    dot = Digraph("DFA", format="png")
 
-        dot.node('q0')
-        dot.node('q1', shape='doublecircle')
+    dot.attr(rankdir="LR")
+    dot.attr(bgcolor="white")
+    dot.attr(splines="true")
+    dot.attr(nodesep="0.8")
+    dot.attr(ranksep="1")
 
-        dot.edge('q0', 'q1', '0-9')
-        dot.edge('q1', 'q1', '0-9')
+    dot.attr(
+        "node",
+        shape="circle",
+        fontsize="16",
+        fontname="Arial",
+        width="1",
+        height="1"
+    )
 
-    elif regex_type == "binary":
+    dot.node("", shape="none")
+    dot.node("q0")
+    dot.node("q1", shape="doublecircle")
 
-        dot.node('q0')
-        dot.node('q1', shape='doublecircle')
+    dot.edge("", "q0")
 
-        dot.edge('q0', 'q1', '0,1')
-        dot.edge('q1', 'q1', '0,1')
+    if re.fullmatch(r"\^\[0-9\]\+\$", regex):
 
-    elif regex_type == "alphabets":
+        dot.edge("q0", "q1", "0-9")
+        dot.edge("q1", "q1", "0-9")
 
-        dot.node('q0')
-        dot.node('q1', shape='doublecircle')
+    elif re.fullmatch(r"\^\[a-zA-Z\]\+\$", regex):
 
-        dot.edge('q0', 'q1', 'a-z')
-        dot.edge('q1', 'q1', 'a-z')
+        dot.edge("q0", "q1", "A-Z a-z")
+        dot.edge("q1", "q1", "A-Z a-z")
 
-    elif regex_type == "email":
+    elif re.fullmatch(r"\^\[01\]\+\$", regex):
 
-        dot.node('q0')
-        dot.node('q1')
-        dot.node('q2')
-        dot.node('q3', shape='doublecircle')
+        dot.edge("q0", "q1", "0 , 1")
+        dot.edge("q1", "q1", "0 , 1")
 
-        dot.edge('q0', 'q1', 'user')
-        dot.edge('q1', 'q2', '@')
-        dot.edge('q2', 'q3', 'domain')
+    elif regex.startswith("^"):
 
-    elif regex_type == "alphanumeric":
+        text = regex.replace("^", "").replace(".*", "")
 
-        dot.node('q0')
-        dot.node('q1', shape='doublecircle')
+        dot.edge("q0", "q1", text)
+        dot.edge("q1", "q1", "Σ")
 
-        dot.edge('q0', 'q1', 'A-Z,a-z,0-9')
-        dot.edge('q1', 'q1', 'A-Z,a-z,0-9')
+    elif regex.endswith("$"):
 
-    elif regex_type == "hexadecimal":
+        text = regex.replace("$", "").replace(".*", "")
 
-        dot.node('q0')
-        dot.node('q1', shape='doublecircle')
+        dot.edge("q0", "q1", "Σ")
+        dot.edge("q1", "q1", text)
 
-        dot.edge('q0', 'q1', '0-9,A-F')
-        dot.edge('q1', 'q1', '0-9,A-F')
+    elif ".*" in regex:
 
-    elif regex_type == "float":
+        text = regex.replace(".*", "")
 
-        dot.node('q0')
-        dot.node('q1')
-        dot.node('q2', shape='doublecircle')
+        dot.edge("q0", "q1", text)
+        dot.edge("q1", "q1", "Σ")
 
-        dot.edge('q0', 'q1', 'digits')
-        dot.edge('q1', 'q2', '.')
-        dot.edge('q2', 'q2', 'digits')
+    elif "@" in regex:
 
-    elif regex_type == "start":
+        dot.node("q2")
+        dot.node("q3", shape="doublecircle")
 
-        dot.node('q0')
-        dot.node('q1', shape='doublecircle')
+        dot.edge("", "q0")
 
-        dot.edge('q0', 'q1', 'start')
-        dot.edge('q1', 'q1', 'any')
-
-    elif regex_type == "end":
-
-        dot.node('q0')
-        dot.node('q1')
-        dot.node('q2', shape='doublecircle')
-
-        dot.edge('q0', 'q1', 'any')
-        dot.edge('q1', 'q2', 'end')
-
-    elif regex_type == "substring":
-
-        dot.node('q0')
-        dot.node('q1')
-        dot.node('q2', shape='doublecircle')
-
-        dot.edge('q0', 'q1', 'substring')
-        dot.edge('q1', 'q2', 'accept')
+        dot.edge("q0", "q1", "username")
+        dot.edge("q1", "q2", "@")
+        dot.edge("q2", "q3", "domain")
 
     else:
 
-        dot.node('q0')
-        dot.node('q1', shape='doublecircle')
+        dot.edge("q0", "q1", "input")
+        dot.edge("q1", "q1", "input")
 
-        dot.edge('q0', 'q1', 'input')
+    dot.render("static/dfa", cleanup=True)
 
-    filename = 'static/dfa'
-
-    dot.render(filename, format='png', cleanup=True)
-
-    return 'dfa.png'
+    return "dfa.png"

@@ -8,7 +8,7 @@ from models.dfa_generator import create_dfa
 from models.explainer import explain_regex
 from models.testcase_generator import generate_test_cases
 app = Flask(__name__)
-current_dfa_type = "default"
+current_regex = ""
 
 @app.route('/')
 def home():
@@ -17,7 +17,7 @@ def home():
 @app.route('/generator', methods=['GET', 'POST'])
 def generator():
 
-    global current_dfa_type
+    global current_regex
 
     regex = ""
     pattern_type = ""
@@ -56,20 +56,7 @@ def generator():
         elif "substring" in analysis:
             pattern_type = "substring"
 
-        if analysis.get("type"):
-            current_dfa_type = analysis["type"]
-
-        elif "start" in analysis:
-            current_dfa_type = "start"
-
-        elif "end" in analysis:
-            current_dfa_type = "end"
-
-        elif "substring" in analysis:
-            current_dfa_type = "substring"
-
-        else:
-            current_dfa_type = "default"
+        current_regex = regex
 
         cursor.execute("""
             INSERT INTO history(language_rule, generated_regex)
@@ -167,7 +154,7 @@ def dashboard():
 @app.route('/dfa')
 def dfa():
 
-    image = create_dfa(current_dfa_type)
+    image = create_dfa(current_regex)
 
     return render_template(
         'dfa.html',

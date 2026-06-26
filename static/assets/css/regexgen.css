@@ -1,0 +1,449 @@
+:root{
+    --primary:#2563EB;
+    --secondary:#06B6D4;
+    --accent:#EC4899;
+    --white:#ffffff;
+}
+
+/* ---------------- Background ---------------- */
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+
+    background-image:url("../images/banner-bg.jpg");
+
+    background-repeat:no-repeat;
+
+    background-position:center center;
+
+    background-size:cover;
+
+    background-attachment:fixed;
+
+    min-height:100vh;
+}
+/* Particles */
+
+#particles-js{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+}
+
+/* ---------------- Navbar ---------------- */
+
+.header-area{
+
+    background:rgb(255, 255, 255)!important;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+
+}
+
+.main-nav ul li a{
+
+    color:#222!important;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.main-nav ul li a:hover{
+
+    color:var(--primary)!important;
+
+}
+
+/* ---------------- Logo ---------------- */
+
+.logo img{
+
+    transition:.35s;
+
+}
+
+.logo img:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ---------------- Hero ---------------- */
+
+.main-banner{
+
+    padding:160px 0 120px;
+
+    text-align:center;
+
+}
+
+.main-banner h2{
+    color:#222;
+
+font-size:60px;
+
+font-weight:800;
+
+text-shadow:0 6px 18px rgb(255, 255, 255);
+
+animation:fadeUp 1s;
+
+}
+
+.main-banner p{
+
+    color:#333;
+
+    text-shadow:none;
+
+animation:fadeUp 1.5s;
+
+}
+
+.main-banner h6{
+
+    color:#fff;
+
+    font-weight:600;
+
+}
+
+/* ---------------- Buttons ---------------- */
+
+.main-button{
+
+    display:inline-block;
+
+    padding:15px 38px;
+
+    border-radius:50px;
+
+    background:linear-gradient(90deg,#2563EB,#06B6D4,#EC4899);
+
+    color:#fff;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+    box-shadow:0 0 25px rgba(37,99,235,.35);
+
+}
+
+.main-button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 0 35px rgba(236,72,153,.55);
+
+    color:#fff;
+
+}
+
+/* ---------------- Cards ---------------- */
+
+.card,
+
+.popular-item,
+
+.featured-item,
+
+.item{
+
+    background:rgba(255,255,255,.88)!important;
+
+    border:none;
+
+    border-radius:22px;
+
+    backdrop-filter:blur(12px);
+
+    transition:.35s;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+
+}
+
+.card:hover,
+
+.popular-item:hover,
+
+.featured-item:hover,
+
+.item:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 40px rgba(37,99,235,.18);
+
+}
+
+/* ---------------- Headings ---------------- */
+
+.section-heading h2{
+
+    color:#222;
+
+    font-weight:700;
+
+}
+
+/* ---------------- Inputs ---------------- */
+
+input,
+
+textarea,
+
+select{
+
+    border-radius:14px!important;
+
+}
+
+input:focus,
+
+textarea:focus{
+
+    box-shadow:0 0 18px rgba(37,99,235,.25)!important;
+
+}
+
+/* ---------------- Tables ---------------- */
+
+table{
+
+    background:#fff;
+
+}
+
+.table-dark{
+
+    background:#2563EB!important;
+
+}
+
+/* ---------------- Footer ---------------- */
+
+footer{
+
+    background:rgba(255,255,255,.85);
+
+    backdrop-filter:blur(12px);
+
+    color:#555;
+
+    padding:30px;
+
+    margin-top:70px;
+
+}
+
+/* ---------------- Floating Animation ---------------- */
+
+.popular-item{
+
+animation:float 3s ease-in-out infinite;
+
+}
+
+.featured-item{
+
+animation:float 3.5s ease-in-out infinite;
+
+}
+
+.item{
+
+animation:float 4s ease-in-out infinite;
+
+}
+
+.main-button{
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+box-shadow:0 0 0 rgba(37,99,235,.4);
+
+}
+
+50%{
+
+box-shadow:0 0 30px rgba(37,99,235,.6);
+
+}
+
+100%{
+
+box-shadow:0 0 0 rgba(37,99,235,.4);
+
+}
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-8px);}
+
+100%{transform:translateY(0);}
+
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media(max-width:768px){
+
+.main-banner h2{
+
+font-size:38px;
+
+}
+
+.main-banner p{
+
+font-size:16px;
+
+}
+
+}
+/* Fade Up */
+
+.fade-up{
+
+animation:fadeUp 1s ease forwards;
+
+opacity:0;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Floating */
+
+.float{
+
+animation:floating 4s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* Zoom */
+
+.zoom{
+
+animation:zoomIn 1s;
+
+}
+
+@keyframes zoomIn{
+
+0%{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+/* Neon Glow */
+
+.glow{
+
+animation:glow 2s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+
+text-shadow:0 0 10px #3B82F6;
+
+}
+
+to{
+
+text-shadow:
+
+0 0 15px #3B82F6,
+
+0 0 30px #3B82F6,
+
+0 0 45px #EC4899;
+
+}
+
+}
+
+#typing{
+    color:#222 !important;
+    font-weight:700;
+}

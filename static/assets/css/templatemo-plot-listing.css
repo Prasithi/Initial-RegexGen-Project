@@ -1389,7 +1389,7 @@ Category Post
 }
 
 .category-post .icon {
-  display: inline-block;
+  display: block;
   width: 66px;
   height: 66px;
   border-radius: 50%;
@@ -1434,7 +1434,6 @@ Category Post
   background-color: #8d99af;
   height: 132px;
   line-height: 132px;
-  display: inline-block;
   float: left;
   text-align: left;
   cursor: pointer;
@@ -1545,7 +1544,7 @@ Category Post
 }
 
 .category-post .top-content .top-icon .icon {
-  display: inline-block;
+  display: block;
   width: 66px;
   height: 66px;
   border-radius: 50%;

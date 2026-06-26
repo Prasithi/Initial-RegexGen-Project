@@ -2,107 +2,215 @@
 
 {% block content %}
 
-<div class="main-banner">
+<!-- ================= HERO SECTION ================= -->
+
+<section class="main-banner" id="top">
 
     <div class="container">
 
-        <div class="row">
+        <div class="row align-items-center">
 
-            <div class="col-lg-12">
+            <!-- Left Side -->
+
+            <div class="col-lg-6">
 
                 <div class="top-text header-text">
 
-                    <h6>Compiler Design Project</h6>
+                    <h6 class="wow fadeInDown" data-wow-duration="1s">
+                        🚀 AI Powered Compiler Tool
+                    </h6>
 
-                    <h2>
-                        Automatic Regular Expression Generation<br>
-                        and String Validation
-                    </h2>
+                    <h1 class="display-4 fw-bold mt-3 text-white">
 
-                    <h4 style="color:white;">
-                        An Intelligent System
-                    </h4>
+    <span id="typing" style="color:white;"></span>
 
-                    <br>
+</h1>
 
-                    <a href="/generator" class="btn btn-primary btn-lg">
-                        Get Started
-                    </a>
+                    <p class="mt-4">
+
+                        RegexGen AI converts natural language into
+                        <strong>Regular Expressions</strong>,
+                        validates input strings and automatically
+                        visualizes DFA diagrams for Compiler Design.
+
+                    </p>
+
+                    <div class="mt-5">
+
+                        <a href="/generator" class="btn btn-primary btn-lg">
+
+    🚀 Generate Regex
+
+</a>
+
+                        &nbsp;&nbsp;
+
+                        <a href="/dashboard" class="btn btn-success btn-lg ms-3">
+
+    📊 Dashboard
+
+</a>
+
+                    </div>
 
                 </div>
 
             </div>
 
+            <!-- Right Side -->
+
+        
+
         </div>
 
     </div>
 
-</div>
+</section>
 
-<!-- About Section -->
+<!-- ================= STATISTICS ================= -->
 
-<section class="container mt-5">
+<section class="container py-5">
 
-    <div class="card p-4 shadow">
+    <div class="row text-center">
 
-        <h3>About RegexAI</h3>
+        <div class="col-md-3 mb-4">
+
+            <div class="card p-4 shadow">
+
+                <h1>50+</h1>
+
+                <h5>Regex Patterns</h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card p-4 shadow">
+
+                <h1>99%</h1>
+
+                <h5>Accuracy</h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card p-4 shadow">
+
+                <h1>6</h1>
+
+                <h5>Core Modules</h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card p-4 shadow">
+
+                <h1>24/7</h1>
+
+                <h5>Available</h5>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="container py-5">
+
+    <div class="section-heading text-center">
+
+        <h2>Core Features</h2>
 
         <p>
-            RegexAI is an intelligent system that converts natural language
-            descriptions into regular expressions automatically. The system
-            analyzes user requirements, generates regex patterns, validates
-            strings, and visualizes pattern structures through DFA diagrams.
+            Everything required for Regular Expression generation and validation.
         </p>
 
     </div>
 
-</section>
+    <div class="row mt-5">
 
-<!-- Features Section -->
+        <div class="col-lg-3 col-md-6 mb-4">
 
-<section class="container mt-5 mb-5">
+            <div class="card h-100 p-4 text-center">
 
-    <div class="row">
+                <h1>🧠</h1>
 
-        <div class="col-md-4 mb-3">
-
-            <div class="card p-4 shadow h-100">
-
-                <h4>Language Analyzer</h4>
+                <h4>Language Analysis</h4>
 
                 <p>
-                    Understands natural language pattern descriptions and
-                    identifies the intended pattern type.
+
+                    Understands natural language requirements
+                    and detects pattern types automatically.
+
                 </p>
 
             </div>
 
         </div>
 
-        <div class="col-md-4 mb-3">
+        <div class="col-lg-3 col-md-6 mb-4">
 
-            <div class="card p-4 shadow h-100">
+            <div class="card h-100 p-4 text-center">
+
+                <h1>⚙️</h1>
 
                 <h4>Regex Generator</h4>
 
                 <p>
-                    Automatically generates suitable regular expressions
-                    from user requirements.
+
+                    Generates optimized Regular Expressions
+                    instantly from user input.
+
                 </p>
 
             </div>
 
         </div>
 
-        <div class="col-md-4 mb-3">
+        <div class="col-lg-3 col-md-6 mb-4">
 
-            <div class="card p-4 shadow h-100">
+            <div class="card h-100 p-4 text-center">
 
-                <h4>String Validator</h4>
+                <h1>📊</h1>
+
+                <h4>DFA Visualizer</h4>
 
                 <p>
-                    Tests input strings against generated regex patterns
-                    and returns validation results.
+
+                    Automatically generates Deterministic
+                    Finite Automata diagrams.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+
+            <div class="card h-100 p-4 text-center">
+
+                <h1>✔️</h1>
+
+                <h4>Validator</h4>
+
+                <p>
+
+                    Validates input strings against the
+                    generated Regular Expressions.
+
                 </p>
 
             </div>
@@ -113,43 +221,79 @@
 
 </section>
 
-<!-- Supported Patterns -->
+<!-- ================= WORKFLOW ================= -->
 
-<section class="container mt-5 mb-5">
+<section class="container py-5">
 
-    <div class="card p-4 shadow">
+    <div class="section-heading text-center">
 
-        <h3>Supported Patterns</h3>
+        <h2>System Workflow</h2>
 
-        <div class="row">
+    </div>
 
-            <div class="col-md-6">
+    <div class="row mt-5 text-center">
 
-                <ul>
-                    <li>numeric strings</li>
-                    <li>letters only</li>
-                    <li>capital letters</li>
-                    <li>small letters</li>
-                    <li>binary numbers</li>
-                    <li>alphanumeric strings</li>
-                    <li>hexadecimal values</li>
-                </ul>
+        <div class="col">
 
-            </div>
+            📝
 
-            <div class="col-md-6">
+            <h5>Describe Pattern</h5>
 
-                <ul>
-                    <li>email address</li>
-                    <li>mobile number</li>
-                    <li>website url</li>
-                    <li>starts with a</li>
-                    <li>ends with z</li>
-                    <li>starts with a and ends with z</li>
-                    <li>contains substring abb</li>
-                </ul>
+        </div>
 
-            </div>
+        <div class="col">
+
+            ⬇️
+
+        </div>
+
+        <div class="col">
+
+            🧠
+
+            <h5>Analyze</h5>
+
+        </div>
+
+        <div class="col">
+
+            ⬇️
+
+        </div>
+
+        <div class="col">
+
+            ⚙️
+
+            <h5>Generate Regex</h5>
+
+        </div>
+
+        <div class="col">
+
+            ⬇️
+
+        </div>
+
+        <div class="col">
+
+            📊
+
+            <h5>Generate DFA</h5>
+
+        </div>
+
+        <div class="col">
+
+            ⬇️
+
+        </div>
+
+        <div class="col">
+
+            ✔️
+
+            <h5>Validate</h5>
 
         </div>
 
@@ -157,43 +301,85 @@
 
 </section>
 
-<!-- Project Statistics -->
+<!-- ================= TECHNOLOGIES ================= -->
 
-<section class="container mt-5 mb-5">
+<section class="container py-5 mb-5">
 
-    <div class="row text-center">
+    <div class="section-heading text-center">
 
-        <div class="col-md-4 mb-3">
+        <h2>Technology Stack</h2>
 
-            <div class="card p-4 shadow">
+    </div>
 
-                <h2>15+</h2>
+    <div class="row mt-5 text-center">
 
-                <p>Supported Patterns</p>
+        <div class="col-md-2">
 
-            </div>
+            <div class="card p-3">
 
-        </div>
+                🐍
 
-        <div class="col-md-4 mb-3">
-
-            <div class="card p-4 shadow">
-
-                <h2>3</h2>
-
-                <p>Core Modules</p>
+                <h5>Python</h5>
 
             </div>
 
         </div>
 
-        <div class="col-md-4 mb-3">
+        <div class="col-md-2">
 
-            <div class="card p-4 shadow">
+            <div class="card p-3">
 
-                <h2>100%</h2>
+                ⚡
 
-                <p>Regex Validation Support</p>
+                <h5>Flask</h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="card p-3">
+
+                💾
+
+                <h5>SQLite</h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="card p-3">
+
+                📈
+
+                <h5>Graphviz</h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="card p-3">
+
+                🎨
+
+                <h5>Bootstrap</h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="card p-3">
+
+                ☁️
+
+                <h5>Render</h5>
 
             </div>
 
