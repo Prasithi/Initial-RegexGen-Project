@@ -79,6 +79,11 @@ def create_dfa(regex):
         dot.edge("q0", "q1", "input")
         dot.edge("q1", "q1", "input")
 
-    dot.render("static/dfa", cleanup=True)
+    try:
+        dot.render("static/dfa", cleanup=True)
+        return "dfa.png"
+    except Exception as e:
+        print("Graphviz Error:", e)
 
-    return "dfa.png"
+    # Return a fallback image that already exists
+    return "assets/images/dfa_placeholder.png"
